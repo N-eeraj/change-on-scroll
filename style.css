@@ -4,14 +4,31 @@
     box-sizing: border-box;
 }
 
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #07F #333;
+}
+
 body {
+    background-image: linear-gradient(black, grey);
+    font-family: sans-serif;
     overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+    line-height: 150px;
+    font-size: 8vmax;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(90deg, #07F, #707);
+    animation: color-change 3s alternate infinite;
 }
 
 section {
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(black, grey)
 }
 
 .content {
@@ -47,9 +64,25 @@ section {
 }
 .content:nth-child(odd) img {
     order: 0;
-    transform: rotate(-10deg) translateX(20%);
+    transform: rotate(-10deg);
 }
 .content:nth-child(even) img {
     order: 1;
-    transform: rotate(10deg) translateX(-20%);
+    transform: rotate(10deg);
+}
+
+@keyframes color-change {
+    to {
+        filter: hue-rotate(100deg);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    background-color: #333;
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(#07F, #A0A);
+    border-radius: 3px;
 }
