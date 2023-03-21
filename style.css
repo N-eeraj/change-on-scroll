@@ -26,24 +26,20 @@ h1 {
     animation: color-change 3s alternate infinite;
 }
 
-section {
-    display: flex;
-    justify-content: center;
-}
-
 .content {
     position: sticky;
     top: 0;
     display: none;
-    width: 100%;
-}
-.content.active {
-    display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     gap: 30px;
     flex-wrap: wrap;
+    width: 100%;
+}
+.content.active {
+    display: flex;
+    animation: fade 2s;
 }
 
 .content p {
@@ -73,7 +69,18 @@ section {
 
 @keyframes color-change {
     to {
-        filter: hue-rotate(100deg);
+        filter: hue-rotate(90deg);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
